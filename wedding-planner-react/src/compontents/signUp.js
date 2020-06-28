@@ -39,7 +39,7 @@ class SignUp extends React.Component{
                   <input onChange={this.handleChange} type="password" name="password" className="form-control" id="password" placeholder="Password" required/>
                 </div><br />
                
-                <button type="submit" onClick={this.SignUp} className="btn btn-primary">Submet</button>
+                <button type="submit" onClick={this.SignUp} className="btn btn-primary">Submit</button>
               </form>
         )
     }
