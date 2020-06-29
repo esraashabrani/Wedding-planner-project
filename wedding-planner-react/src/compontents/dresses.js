@@ -1,5 +1,7 @@
-import React from 'react';
-class Dresses extends React.Component {
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
+export default class Dresses extends Component {
     constructor(props) {
       super(props);
     }
@@ -90,5 +92,5 @@ class Dresses extends React.Component {
       );
     }
   }
-  export default Dresses;
+  
   
