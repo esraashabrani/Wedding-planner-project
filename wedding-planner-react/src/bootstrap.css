@@ -1,0 +1,143 @@
+.navbar {
+    background-image: url("https://images-na.ssl-images-amazon.com/images/I/71X62Zgk89L._AC_SL1240_.jpg"); 
+    height: 500px;
+    background-color: transparent !important;
+    background-repeat: repeat-x;
+    border: 1px solid blueviolet;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+    min-height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+ .navbar-Link{
+
+	color: black;
+    float: none;
+    padding: 10px 15px;
+    font-size: 30px;  
+    font-weight: bolder;
+    text-decoration: none;
+    text-shadow: 0 0px 0 #ffffff;
+}
+
+.nav-Link{
+	
+	color: black;
+    float: none;
+    padding: 10px 15px;
+    font-size: 30px; 
+    font-weight: bolder;
+    text-decoration: none;
+    text-shadow: 0 0px 0 #ffffff;
+}
+img{
+	max-width: 100%;
+    height: 50%;
+}
+
+p{
+	max-width: 1200px;
+    width: 500%;
+    margin: auto;
+    text-align: center;
+    font-size: large;
+    font-family: monospace;
+    color: blueviolet;
+}
+
+
+h1{
+	max-width: 1200px;
+    width: 500%;
+    margin: auto;
+    text-align: center;
+    font-size: xx-large;
+    font-family: monospace;
+    color: rgb(192, 55, 197);
+}
+h3{
+	max-width: 1200px;
+    width: 500%;
+    margin: auto;
+    text-align: left;
+    font-size: xx-large;
+    font-style: oblique;
+    font-family: monospace;
+    color: rgb(192, 55, 197);
+}
+
+button {
+    
+    width: 30%;
+    margin: 50px;
+    text-align: center;
+    font-size: x-large;
+    color: rgb(123, 43, 197);
+    font-family: monospace;
+    border-radius: 7px;
+   left:150px;
+   position: relative;
+   
+}
+ .btn{
+	width: 50%;
+    margin: 80px;
+    text-align: center;
+    font-size: x-large;
+
+    color: rgb(123, 43, 197);
+    font-family: monospace;
+    border-radius: 7px;
+     right:300px;
+   position: relative;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .product-card {
+    flex: 1 25%;
+    box-shadow: 0 4px 8px 0 rgba(123, 43, 197);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    border-width: thin;
+    border-style: inset;
+    margin-bottom: 20px;
+  }
+  .product-image img {
+    margin-top: 10px;
+    max-width: 80%;
+  }
+  .product-info {
+    margin-top: auto;
+  }
+  @media (max-width: 920px) {
+    .product-card {
+      flex: 1 21%;
+    }
+  }
+
+  .card{
+  	background-image: url("https://thumbs.dreamstime.com/b/wedding-invitation-copy-space-blank-card-rings-39528533.jpg")
+  }
+
+  .invit{
+  background-image: url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/wedding-uninvited-guest-1526320738.jpg");
+  height: 800px;
+  }
+
+  .sign{
+  	background-image: url("https://images-na.ssl-images-amazon.com/images/I/41UWmGj-sOL._SX384_BO1,204,203,200_.jpg");
+  }
+
+
+.imageStyle{
+    width: 100%; 
+    height: 100%;
+}
