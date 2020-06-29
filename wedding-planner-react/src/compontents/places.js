@@ -1,8 +1,11 @@
-import React from 'react';
-class Places extends React.Component {
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
+export default class Places extends Component {
     constructor(props) {
       super(props);
     }
+
     render() {
       return (
         <div>
@@ -90,5 +93,4 @@ class Places extends React.Component {
     }
   }
   
-  export default Places;
   
