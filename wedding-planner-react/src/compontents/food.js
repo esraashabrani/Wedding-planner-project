@@ -1,5 +1,7 @@
-import React from 'react';
-class Food extends React.Component {
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
+export default class Food extends React.Component {
     constructor(props) {
       super(props);
     }
@@ -91,5 +93,5 @@ class Food extends React.Component {
     }
   }
   
-  export default Food;
+  
   
