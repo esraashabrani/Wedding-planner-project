@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-//const stuff = require('./stuffData.json');
+const stuff = require('./stuffData.json');
 
 //creatinf a user schema
 let userSchema = mongoose.Schema({
@@ -37,17 +37,17 @@ let Card = mongoose.model('Card', cardSchema, 'cards');
 let save = (users) => { };
 
 let saveSt = () => {
-  // for (var i = 0; i < stuff.length; i++) {
-  //   var partOfStuff = new Stuff({
-  //     category: stuff[i].category,
-  //     name: stuff[i].name,
-  //     imageUrl: stuff[i].imageUrl,
-  //     websiteUrl: stuff[i].websiteUrl,
-  //     contact: stuff[i].contact,
-  //     location: stuff[i].location,
-  //   });
-  //   partOfStuff.save();
-  // }
+  for (var i = 0; i < stuff.length; i++) {
+    var partOfStuff = new Stuff({
+      category: stuff[i].category,
+      name: stuff[i].name,
+      imageUrl: stuff[i].imageUrl,
+      websiteUrl: stuff[i].websiteUrl,
+      contact: stuff[i].contact,
+      location: stuff[i].location,
+    });
+    partOfStuff.save();
+  }
 };
 
 module.exports.save = save;

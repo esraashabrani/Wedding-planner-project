@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
-var db = require('../database/index');
-
+var db = require('./database/index');
+var populateData = require('./database/schemas.js');
 app.use(express.static('public'));
+
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
@@ -12,6 +13,7 @@ const port = 5000;
 app.post('/', (req, res) => { });
 
 app.get('/', (req, res) => {
+    
 });
-
+populateData.saveSt();
 app.listen(port, () => console.log(`Listening at http://localhost:${port}`));

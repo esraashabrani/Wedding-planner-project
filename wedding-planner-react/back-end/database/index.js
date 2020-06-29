@@ -2,6 +2,7 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/weddingPlanning', {
   useNewUrlParser: true,
+  useUnifiedTopology: true 
 });
 
 var db = mongoose.connection;
