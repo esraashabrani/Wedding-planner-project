@@ -103,19 +103,26 @@ button {
     flex: 1 25%;
     box-shadow: 0 4px 8px 0 rgba(123, 43, 197);
     max-width: 300px;
+    height: 400px;
     margin: auto;
     text-align: center;
     font-family: arial;
     border-width: thin;
     border-style: inset;
     margin-bottom: 20px;
+    
   }
   .product-image img {
     margin-top: 10px;
-    max-width: 80%;
+    width: 80%;
+    
+   
   }
   .product-info {
     margin-top: auto;
+    font-size: x-small;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: blue;
   }
   @media (max-width: 920px) {
     .product-card {
@@ -124,8 +131,8 @@ button {
   }
 
   .card{
-  	background-image: url("https://thumbs.dreamstime.com/b/wedding-invitation-copy-space-blank-card-rings-39528533.jpg")
-  }
+    background-image: url("https://thumbs.dreamstime.com/b/wedding-invitation-copy-space-blank-card-rings-39528533.jpg");
+      }
 
   .invit{
   background-image: url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/wedding-uninvited-guest-1526320738.jpg");
