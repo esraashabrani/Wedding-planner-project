@@ -79,6 +79,9 @@ app.post('/login', (req, res) => {
       //here will be the jquery for the alert
       return res.render(counter++, { error: 'incorrect email/password' });
     }
+    if (counter === 2) {
+      return res.render("signin");
+    }
     req.session.userId = user._id;
     sessionId = req.session.userId;
     res.redirect('/homePage');
