@@ -25,7 +25,10 @@ let cardSchema = mongoose.Schema({
   brideName: String,
   groomName: String,
   placeName: String,
-  date: Date
+  date: Date,
+  groomId: [
+    { type: mongoose.Schema.Types.ObjectId, ref: 'users' }
+  ]
 });
 
 //creating models for the schemas
@@ -34,7 +37,7 @@ let Stuff = mongoose.model('Stuff', stuffSchema, 'allstuff');
 let Card = mongoose.model('Card', cardSchema, 'cards');
 
 //save users
-let saveUser = () => {
+let saveUser = (user) => {
   user.save = err => {
     if (err) {
       let error = 'please try again';
@@ -48,6 +51,8 @@ let saveUser = () => {
 
 let saveCrd = cards => {
   // var card = new Card();
+  // card.groomName = User.name;
+  // card.groomId.push(User._id);
   // card.save();
 };
 
