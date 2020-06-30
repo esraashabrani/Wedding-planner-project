@@ -25,7 +25,8 @@ app.use(
   })
 );
 
-//smart user middleware
+//smart user middleware, check if the user is logged in to be 
+//able to view the other pages
 app.use((req, res, next) => {
   req.session.userId = postData.User._id;
   if (!(req.session && req.session.useID)) {
@@ -49,7 +50,7 @@ app.use((req, res, next) => {
 });
 
 //post request for signup
-app.post('/sign-up', (req, res) => {
+app.post('/signup', (req, res) => {
   let hash = bcrypt.hashSync(req.body.password, 14);
   req.body.password = hash;
   let user = new postData.User(req.body);
@@ -57,41 +58,43 @@ app.post('/sign-up', (req, res) => {
   res.redirect('/homePage');
 });
 
-app.get('/sign-up', (req, res) => {
-  res.render('sign-up');
+app.get('/signup', (req, res) => {
+  res.render('signup');
 });
 
 //post request for signin
-app.post('/sign-in', (req, res) => {
+app.post('/login', (req, res) => {
   postData.User.findOne({ email: req.body.email }, (err, user) => {
+    var counter = 0;
     if (
       err ||
       !user ||
-      !bcrypt.compareSync(req.body.password !== user.password)
+      !bcrypt.compareSync(req.body.password !== user.password) || counter < 2
     ) {
-      return res.render('signup', { error: 'incorrect email/password' });
+      //here will be the jquery for the alert
+      return res.render(counter++, { error: 'incorrect email/password' });
     }
-    req.session.userId = postData.User._id;
+    req.session.userId = user._id;
     res.redirect('/homePage');
   });
 });
 
-app.get('/sign-in', (req, res) => {
-  res.render('sign-in');
+app.get('/login', (req, res) => {
+  res.render('login');
 });
 
 //get for singin to see if user is signed in
 app.get('/homePage', (req, res, next) => {
   req.session.userId = postData.User._id;
   if (!(req.session && req.session.userId)) {
-    return res.redirect("/sign-in")
+    return res.redirect("/login")
   }
   postData.User.findById(req.session.userId, (err, user) => {
     if (err) {
       return next(err);
     }
     if (!user) {
-      return res.redirect("/sign-in");
+      return res.redirect("/login");
     }
     res.render("/homePage");
   })
