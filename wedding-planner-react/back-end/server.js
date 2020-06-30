@@ -44,10 +44,15 @@ app.use((req, res, next) => {
 
     req.user = user;
     res.locals.user = user;
+    sessionId = req.session.userId;
 
     next();
   });
 });
+
+
+//taking session id to be global variable
+var sessionId;
 
 //post request for signup
 app.post('/signup', (req, res) => {
@@ -75,6 +80,7 @@ app.post('/login', (req, res) => {
       return res.render(counter++, { error: 'incorrect email/password' });
     }
     req.session.userId = user._id;
+    sessionId = req.session.userId;
     res.redirect('/homePage');
   });
 });
@@ -86,6 +92,7 @@ app.get('/login', (req, res) => {
 //get for singin to see if user is signed in
 app.get('/homePage', (req, res, next) => {
   req.session.userId = postData.User._id;
+  sessionId = req.session.userId;
   if (!(req.session && req.session.userId)) {
     return res.redirect("/login")
   }
@@ -109,3 +116,4 @@ app.get('/', (req, res) => {
 app.listen(port, () => console.log(`Listening at http://localhost:${port}`));
 
 module.exports = app;
+module.exports = sessionId

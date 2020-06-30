@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const sessionId = require("../back-end/server");
 const stuff = require('./stuffData.json');
 
 //creatinf a user schema
@@ -52,7 +53,7 @@ let saveUser = (user) => {
 let saveCrd = cards => {
   // var card = new Card();
   // card.groomName = User.name;
-  // card.groomId.push(User._id);
+  //card.groomId.push(sessionId.sessionId);
   // card.save();
 };
 
