@@ -6,83 +6,83 @@ export default class HomePage extends Component {
     return (
       <div
         id="carousel-example-generic"
-        class="carousel slide"
+        className="carousel slide"
         data-ride="carousel"
       >
-        <ol class="carousel-indicators">
+        <ol className="carousel-indicators">
           <li
             data-target="#carousel-example-generic"
             data-slide-to="0"
-            class="active"
+            className="active"
           ></li>
           <li data-target="#carousel-example-generic" data-slide-to="1"></li>
           <li data-target="#carousel-example-generic" data-slide-to="2"></li>
         </ol>
 
-        <div class="carousel-inner" role="listbox">
-          <div class="item active">
+        <div className="carousel-inner" role="listbox">
+          <div className="item active">
             <img
               src="https://www.dkphoto.ie/wp-content/uploads/2017/12/Wedding-photographers-Sligo-1.jpg"
               alt="..."
             />
-            <div class="carousel-caption">
+            <div className="carousel-caption">
               <h2>Arrange Your wedding With US</h2>
             </div>
           </div>
-          <div class="item">
+          <div className="item">
             <img
               src="https://www.innsbrook-resort.com/images/uploads/slider/Wedding-Slider1-1600x565.jpg?1593043200236"
               alt="..."
             />
-            <div class="carousel-caption">
+            <div className="carousel-caption">
               <h2>
                 We will help you to get happy Marrage by making things easier!
               </h2>
             </div>
           </div>
-          <div class="item">
+          <div className="item">
             <img
               src="https://www.wedaways.com/wp-content/uploads/2018/06/cake-cutting-italian-small.jpeg"
               alt="..."
             />
-            <div class="carousel-caption">
+            <div className="carousel-caption">
               <h2>Trust US!</h2>
             </div>
           </div>
-          <div class="item">
+          <div className="item">
             <img
               src="https://images.squarespace-cdn.com/content/540f1d68e4b059d633f37e8c/1515154727478-UCLGSFXSVUBPV6JV83I8/a%2Bs_temple_house_sligo_wedding_livia_figueiredo_591.jpg?format=2500w&content-type=image%2Fjpeg"
               alt="..."
             />
-            <div class="carousel-caption">
+            <div className="carousel-caption">
               <h2>Best Day Ever!</h2>
             </div>
           </div>
         </div>
 
         <a
-          class="left carousel-control"
+          className="left carousel-control"
           href="#carousel-example-generic"
           role="button"
           data-slide="prev"
         >
           <span
-            class="glyphicon glyphicon-chevron-left"
+            className="glyphicon glyphicon-chevron-left"
             aria-hidden="true"
           ></span>
-          <span class="sr-only">Previous</span>
+          <span className="sr-only">Previous</span>
         </a>
         <a
-          class="right carousel-control"
+          className="right carousel-control"
           href="#carousel-example-generic"
           role="button"
           data-slide="next"
         >
           <span
-            class="glyphicon glyphicon-chevron-right"
+            className="glyphicon glyphicon-chevron-right"
             aria-hidden="true"
           ></span>
-          <span class="sr-only">Next</span>
+          <span className="sr-only">Next</span>
         </a>
 
         <div>

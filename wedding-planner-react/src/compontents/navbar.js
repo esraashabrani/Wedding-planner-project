@@ -37,14 +37,14 @@ export default class Navbar extends Component {
                 CardInvitation
               </Link>
             </li>
-            <ul nav-left>
+            <ul nav-left="true">
               <li className="navbar-item">
-                <Link to="/signup" class="nav-Link">
+                <Link to="/signup" className="nav-Link">
                   SignUp
                 </Link>
               </li>
               <li className="navbar-item">
-                <Link to="/login" class="nav-Link">
+                <Link to="/login" className="nav-Link">
                   Login
                 </Link>
               </li>

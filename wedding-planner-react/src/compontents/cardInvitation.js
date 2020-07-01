@@ -9,34 +9,27 @@ export default class CardInvitation extends Component {
     this.onChangeGroomname = this.onChangeGroomname.bind(this);
     this.onChangeDate = this.onChangeDate.bind(this);
     this.onChangeLocation = this.onChangeLocation.bind(this);
-    this.onCreatecard = this.onCreatecard.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      bridename: "",
-      groomname: "",
-      date: 0,
-      location: "",
-      users: [],
+      brideName: "",
+      groomName: "",
+      date: "",
+      placeName: "",
     };
   }
 
-  componentDidMount() {
-    this.setState({
-      users: ["name"],
-      bridename: "name",
-      groomname: "name",
-    });
-  }
+  componentDidMount() {}
 
   onChangeBridename(e) {
     this.setState({
-      bridename: e.target.value,
+      brideName: e.target.value,
     });
   }
 
   onChangeGroomname(e) {
     this.setState({
-      groomname: e.target.value,
+      groomName: e.target.value,
     });
   }
 
@@ -48,17 +41,21 @@ export default class CardInvitation extends Component {
 
   onChangeLocation(e) {
     this.setState({
-      location: e.target.value,
+      placeName: e.target.value,
     });
   }
 
-  onCreatecard(e) {
+  onSubmit(e) {
     e.preventDefault();
-    const user = {
-      bridename: this.state.bridename,
+    const card = {
+      brideName: this.state.brideName,
+      groomName:this.state.groomName,
+      date :this.state.date,
+      placeName :this.state.placeName
+
     };
-    console.log(user);
-    window.location = "/";
+    console.log(card);
+    //window.location = "/";
   }
 
   render() {
@@ -67,28 +64,20 @@ export default class CardInvitation extends Component {
         <h1>Create Invitation Card</h1>
         <p>
           Now since we arranged everything for the wedding lets create the
-          invitatin card so we can send it to you'r guests!{" "}
+          invitatin card so we can send it to you'r guests!
         </p>
         <br />
         <div className="card">
-          <form onCreatecard={this.onCreatecard}>
+          <form onSubmit={this.onSubmit}>
             <div className="form-group">
               <label>Bride Name: </label>
-              <select
-                ref="userInput"
+              <input
+                type="text"
                 required
                 className="form-control"
-                value={this.state.bridename}
+                value={this.state.brideName}
                 onChange={this.onChangeBridename}
-              >
-                {this.state.users.map(function (user) {
-                  return (
-                    <option key={user} value={user}>
-                      {user}
-                    </option>
-                  );
-                })}
-              </select>
+              />
             </div>
             <div className="form-group">
               <label>Groom Name: </label>
@@ -96,14 +85,14 @@ export default class CardInvitation extends Component {
                 type="text"
                 required
                 className="form-control"
-                value={this.state.groomname}
+                value={this.state.groomName}
                 onChange={this.onChangeGroomname}
               />
             </div>
             <div className="form-group">
               <label>Date of wedding: </label>
               <input
-                type="number"
+                type="text"
                 required
                 className="form-control"
                 value={this.state.date}
@@ -116,16 +105,15 @@ export default class CardInvitation extends Component {
                 type="text"
                 required
                 className="form-control"
-                value={this.state.location}
+                value={this.state.placeName}
                 onChange={this.onChangeLocation}
               />
             </div>
-            <div className="form-group">
-              <input
-                type="createcard"
-                className="btn btn-primary"
-                value="Create Wedding Card"
-              />
+            <div className="btn">
+              <button type="submit" className="btn btn-primary">
+                Create Invetaion card
+              </button>
+              <p id="accoutCreated"></p>
             </div>
           </form>
         </div>
