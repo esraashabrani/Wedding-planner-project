@@ -39,7 +39,7 @@ export default class Login extends Component {
         }
         if(res.data === true){
           document.getElementById('loginResult').innerText = "Login Successed! "
-          window.location = '/places'
+          //window.location = '/places'
         } else if (res.data === false){
           document.getElementById('loginResult').innerText = "Login Failed! Wrong password! "
           

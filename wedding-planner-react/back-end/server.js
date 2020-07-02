@@ -4,30 +4,28 @@ const mongoose = require("mongoose");
 var db = require("./database/index");
 var populateData = require("./database/schemas.js");
 var session = require("express-session");
+const FileStore = require("session-file-store")(session);
 var cookieParser = require("cookie-parser");
-
 const bcrypt = require("bcrypt");
 
 require("dotenv").config();
 const app = express();
-
-app.use(cors());
-
-app.use(express.static("public"));
+app.use(cookieParser("weddingPlannerApplication"));
 
 app.use(express.json());
-
-const port = process.env.PORT || 5000;
-app.use(cookieParser());
+app.use(cors());
 app.use(
   session({
-    secret: "secret",
+    name: "session-id",
+    secret: "ASEAFigthers",
+    saveUninitialized: false,
     resave: false,
-    saveUninitialized: true,
+    store: new FileStore(),
   })
 );
-
-app.post("/login", async (req, res) => {
+const port = process.env.PORT || 5000;
+app.use(express.static("public"));
+app.post("/login", async (req, res, next) => {
   var newUser = {};
   newUser.email = req.body.email;
   newUser.password = req.body.password;
@@ -39,20 +37,14 @@ app.post("/login", async (req, res) => {
       if (err) {
         return res.send(err);
       } else if (result === true) {
-        // var id = user._id;
-        // req.session.loggedin = true;
-        // req.session.id = id;
-        // var userInfo ={
-        //    id : id,
-        //    sessionLoggedin:req.session.loggedin,
-        //    sessionId:req.session.id,
-        //    userEmail :user.email
-        // }
-
-        // return res.redirect('/homepage')
         req.session.user = user;
 
+        res.cookie("user", "user", {
+          signed: true,
+          maxAge: 1000 * 60 * 60,
+        });
         res.status(200).send(result);
+        next();
       } else {
         return res.send(result);
       }
@@ -60,7 +52,10 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.get("/", (req, res) => {});
+app.get("/logout", (req, res) => {
+  req.session.destroy();
+  return res.status(200).send("logout");
+});
 
 populateData.saveSt();
 
@@ -71,7 +66,7 @@ const signUpRouter = require("./routes/signUp");
 const dressesRouter = require("./routes/dresses");
 const foodRouter = require("./routes/food");
 const cardRouter = require("./routes/card");
-const { request } = require("express");
+
 //const loginRouter = require("./routes/login");
 
 app.use("/places", placesRouter);
