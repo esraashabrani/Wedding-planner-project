@@ -20,6 +20,8 @@ export default class LoginFacebook extends Component {
         name: response.name,
         picture: response.picture.data.url,
       });
+    localStorage.setItem("myEmail", this.state.name);
+    window.location = "/homepage";
   };
 
   render() {

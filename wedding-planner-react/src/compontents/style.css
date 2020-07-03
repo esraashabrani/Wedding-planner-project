@@ -1,0 +1,30 @@
+.products {
+    display: flex;
+    flex-wrap: wrap;
+  }
+​
+  .product-card {
+    flex: 1 16%;
+    box-shadow: 0 4px 8px 0 rgb(214, 13, 137);
+    height: 400px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    border-width: thin;
+    border-style: inset;
+    margin-bottom: 20px;
+    border-radius: 80px;
+    border-color: blueviolet;
+  }
+  .product-image img {
+    margin-top: 10px;
+    width: 80%;
+  }
+  .product-info {
+    margin-top: auto;
+  }
+  @media (max-width: 1500px) {
+    .product-card {
+      flex: 1 20%;
+    }
+  }

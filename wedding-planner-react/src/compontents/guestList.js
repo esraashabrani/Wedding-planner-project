@@ -1,86 +1,74 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
+import axios from "axios";
 export default class GuestList extends Component {
   constructor(props) {
     super(props);
-
     this.onChangeEmail = this.onChangeEmail.bind(this);
-    this.onAdd = this.onAdd.bind(this);
-
+    this.onSubmit = this.onSubmit.bind(this);
     this.state = {
-      Email: "",
-      guests: [],
+      guestEmail: "",
     };
   }
-
-  componentDidMount() {
-    this.setState({
-      guests: ["test Email"],
-      Email: "Email",
-    });
-  }
-
+  componentDidMount() {}
   onChangeEmail(e) {
     this.setState({
-      Email: e.target.value,
+      guestEmail: e.target.value,
     });
   }
-
-  onAdd(e) {
+  onSubmit(e) {
     e.preventDefault();
-
     const guest = {
-      Email: this.state.Email,
+      id: localStorage.getItem("id"),
+      guestEmail: this.state.guestEmail,
     };
     console.log(guest);
-    window.location = "/";
+    axios
+      .post("http://localhost:5000/signup/update", guest)
+      .then((res) => {
+        console.log("guest added successfuly!");
+        // window.location = '/sign-in'
+      })
+      .catch(() => console.log("Adding guest failed !"));
+    //window.location = '/';
   }
-
   render() {
     return (
-      <div>
-        <h1>guest List</h1>
+      <div className="guest">
+        <ul>
+          <li>
+            <Link to="/homepage">Home Page</Link>
+          </li>
+        </ul>
+        <h1>Guest List</h1>
+        <p>
+          {" "}
+          Enter the email of each guest so we can send them the invitation card!
+        </p>
         <div className="invit">
-          <form onAdd={this.onAdd}>
+          <form onSubmit={this.onSubmit}>
             <div className="form-group">
               <label>Email address: </label>
-              <select
-                ref="guestInput"
+              <input
+                type="text"
+                name="guestEmail"
                 required
                 className="form-control"
-                value={this.state.Email}
+                value={this.state.guestEmail}
                 onChange={this.onChangeEmail}
-              >
-                {this.state.guests.map(function (guest) {
-                  return (
-                    <option key={guest} value={guest}>
-                      {guest}
-                    </option>
-                  );
-                })}
-              </select>
+              />
             </div>
-
+            ​
             <div className="form-group">
               <input
-                type="Add"
+                type="submit"
                 className="btn btn-primary"
                 value="Add Guest Email"
               />
               <br />
+              <img src="../imageguest.jpg" />
             </div>
-            <h3>
-              You have shared the <br />
-              same journey that we both had in life.
-              <br />
-              Without your presence,
-              <br />
-              the joy of this wedding is incomplete.
-              <br />
-              We are cordially inviting you <br />
-              to be with us on our wedding day!
-            </h3>
+            ​
           </form>
         </div>
       </div>

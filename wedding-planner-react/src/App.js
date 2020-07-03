@@ -1,48 +1,44 @@
-import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./bootstrap.css";
-
-import HomePage from "./compontents/homePage.js";
-import Dresses from "./compontents/dresses.js";
+import React from 'react';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import CaroComponent from "./compontents/caro.js";
+import WeddingPlanner from "./compontents/weddingPlanner.js"
 import Food from "./compontents/food.js";
 import Places from "./compontents/places.js";
-import Navbar from "./compontents/navbar.js";
+import Dresses from "./compontents/dresses.js";
 import GuestList from "./compontents/guestList.js";
 import CardInvitation from "./compontents/cardInvitation.js";
-import LoginFacebook from "./compontents/facebook.js";
+import WishList from "./compontents/wishlist.js";
+import CardExample from "./compontents/weedingcard.js";
 import Login from "./compontents/login.js";
 import SignUp from "./compontents/signUp.js";
-
-
+import LoginFacebook from "./compontents/facebook.js";
+import HomePage from "./compontents/homePage.js";
+import Logout from "./compontents/logout.js"
 function App() {
   return (
-    <div className='App'>
-      <facebook />
-      
-            <Router>
-              <Navbar />
-              <br/>
-              <Route path="/homepage" component={HomePage} />
-              <br/>
-              <Route path="/food" component={Food} />
-              <br/>
-              <Route path="/dresses" component={Dresses} />
-              <br/>
-              <Route path="/places" component={Places} />
-              <br/>
-              <Route path="/guestList" component={GuestList} />
-              <br/>
-              <Route path="/cardInvitation"  component={CardInvitation} />
-              <br/>
-              <Route path="/signUp" component={SignUp} />
-              <br/>
-              <Route path="/login" component={Login} />
-              <br/>
-              <Route path="/facebookLogin" component={LoginFacebook} />
-            </Router>
-       </div>
+    <div>
+            
+​
+            <div className="auth-inner">
+          <Switch>  
+            <Route path="/card" component={CardExample} />
+            <Route path="/wishlist" component={WishList} />
+            <Route path = "/homePage" component={HomePage} />
+            <Route exact path='/start' component={WeddingPlanner} />
+            <Route path="/sign-in" component={Login} />
+            <Route path="/sign-up" component={SignUp} />
+            <Route path="/facebookLogin" component={LoginFacebook} />
+            <Route path="/food" component={Food} />
+            <Route path="/dresses" component={Dresses} />
+            <Route path="/places" component={Places} />  
+            <Route path="/guestList" component={GuestList} />
+            <Route path="/cardInvitation"  component={CardInvitation} />
+            <Route path="/logout"  component={Logout} />
+          </Switch>
+        </div>
+            </div>
   );
 }
-
 export default App;

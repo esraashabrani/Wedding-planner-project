@@ -32,6 +32,14 @@ router.route('/').post(async(req,res)=> {
     // .catch(err => res.status(400).json('Error: ' + err));
 })
 
+router.route('/update').post((req, res) => {
+    var id = req.body.id;
+    var value = req.body.guestEmail;
+    User.User.update({_id:id},{$push:{guests:value}})
+      .then(() => res.json("updated"))
+      .catch(err => res.status(400).json('Error: ' + err));
+});
+
 router.route('/').get((req, res) => {
     User.User.find()
       .then(users => res.json(users))

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
 export default class Login extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ export default class Login extends Component {
       password: e.target.value,
     });
   }
-  onSubmit(e){
+  onSubmit(e) {
     e.preventDefault();
     const user = {
       email: this.state.email,
@@ -32,23 +33,28 @@ export default class Login extends Component {
     };
     console.log(user);
 
-    axios.post('http://localhost:5000/login', user)
-      .then(res => {
-        if (res.data === 'That email not exists!'){
-          document.getElementById('loginResult').innerText = "Login Failed! The email not exists! "
+    axios
+      .post("http://localhost:5000/login", user)
+      .then((res) => {
+        if (res.data === "That email not exists!") {
+          document.getElementById("loginResult").innerText =
+            "Login Failed! The email not exists! ";
+          // var btn = document.createElement("BUTTON"); // Create a <button> element
+          // btn.innerHTML = "CLICK ME"; // Insert text
+          // document.getElementsByClassName("btn").appendChild(btn);
+        } else if (res.data === false) {
+          document.getElementById("loginResult").innerText =
+            "Login Failed! Wrong password! ";
+        } else if (res.data.result === true) {
+          document.getElementById("loginResult").innerText =
+            "Login Successed! ";
+          window.location = "/homepage";
         }
-        if(res.data === true){
-          document.getElementById('loginResult').innerText = "Login Successed! "
-          //window.location = '/places'
-        } else if (res.data === false){
-          document.getElementById('loginResult').innerText = "Login Failed! Wrong password! "
-          
-        }
-        
-        console.log(res.data)
+        localStorage.setItem("myEmail", res.data.user.email);
+        localStorage.setItem("id", res.data.user._id);
+        console.log(res.data);
       })
-      .catch(() =>console.log("Error Occured!"))
-
+      .catch(() => console.log("Error Occured!"));
   }
 
   render() {
@@ -89,6 +95,11 @@ export default class Login extends Component {
           <button type="submit" className="btn btn-primary">
             Login
           </button>
+
+          <p>
+            <Link to="/sign-up"> Email not Exists ! Sign Up </Link>
+          </p>
+
           <p id="loginResult"></p>
         </div>
       </form>

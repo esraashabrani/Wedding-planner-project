@@ -43,7 +43,11 @@ app.post("/login", async (req, res, next) => {
           signed: true,
           maxAge: 1000 * 60 * 60,
         });
-        res.status(200).send(result);
+        var userInfo = {
+          user: user,
+          result: result,
+        };
+        res.status(200).send(userInfo);
         next();
       } else {
         return res.send(result);

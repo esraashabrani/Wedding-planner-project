@@ -26,6 +26,10 @@ let cardSchema = mongoose.Schema({
   groomName: String,
   placeName: String,
   date: Date,
+  wishListUrl: String,
+  groomId: [
+    { type: mongoose.Schema.Types.ObjectId, ref: 'users' }
+  ]
 });
 
 //creating models for the schemas

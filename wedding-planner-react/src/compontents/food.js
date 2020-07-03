@@ -27,6 +27,11 @@ export default class Food extends React.Component {
     var catering = this.state.food;
     return (
       <div>
+        <ul>
+          <li>
+            <Link to="/homepage">Home Page</Link>
+          </li>
+        </ul>
         <section className="products">
           {catering.map(function (ele) {
             return (
@@ -35,10 +40,13 @@ export default class Food extends React.Component {
                   <img src={ele.imageUrl} />
                 </div>
                 <div className="product-info">
-                  <a>Name: {ele.name} </a><br/>
-                  <a>Location:{ele.location}</a><br/>
-                  <a> WebsiteUrl:</a> 
-                  <a href={ele.websiteUrl}>click here</a><br/>
+                  <a>Name: {ele.name} </a>
+                  <br />
+                  <a>Location:{ele.location}</a>
+                  <br />
+                  <a> WebsiteUrl:</a>
+                  <a href={ele.websiteUrl} target="_blank">click here</a>
+                  <br />
                   <a>Contact us:{ele.contact}</a>
                 </div>
               </div>

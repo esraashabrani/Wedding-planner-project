@@ -52,7 +52,7 @@ export default class SignUp extends Component {
     axios.post('http://localhost:5000/signup/', user)
       .then(res => {
         document.getElementById('accoutCreated').innerText = "Account created Successfully! "
-        window.location = '/login'
+        window.location = '/sign-in'
       })
       .catch(() =>document.getElementById('accoutCreated').innerText = "The email is already exists! ")
 
@@ -62,7 +62,7 @@ export default class SignUp extends Component {
   }
   render() {
     return (
-      <form className="sign" onSubmit={this.onSubmit}>
+      <form  onSubmit={this.onSubmit}>
         <div className="form-group">
           <label htmlFor="name">First name</label>
           <br />
@@ -126,8 +126,8 @@ export default class SignUp extends Component {
         </div>
         <br />
         <div className="btn">
-          <button type="submit" className="btn btn-primary">
-            Submit
+          <button type="submit" className="btn btn-primary btn-block">
+            SignUp
           </button>
           <p id="accoutCreated"></p>
         </div>

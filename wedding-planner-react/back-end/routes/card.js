@@ -6,13 +6,17 @@ router.route('/').post((req,res) =>{
     const groomName = req.body.groomName;
     const placeName = req.body.placeName;
     const date = Date.parse(req.body.date);
-
+    const wishListUrl = req.body.wishListUrl;
+    const groomId = req.body.groomId;
 
     const newCard = new Card.Card({
         brideName,
         groomName,
         placeName,
-        date
+        date,
+        wishListUrl,
+        groomId
+
     });
 
     newCard.save()
