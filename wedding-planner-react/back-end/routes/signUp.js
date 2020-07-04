@@ -2,6 +2,7 @@ const router = require('express').Router();
 let User = require('../database/schemas');
 const bcrypt = require('bcrypt');
 
+// Function to insert new user to databse (SignUp)
 router.route('/').post(async(req,res)=> {
  
     let hash = bcrypt.hashSync(req.body.password, 14);
@@ -32,6 +33,7 @@ router.route('/').post(async(req,res)=> {
     // .catch(err => res.status(400).json('Error: ' + err));
 })
 
+// Function to update user data with guest list emails.
 router.route('/update').post((req, res) => {
     var id = req.body.id;
     var value = req.body.guestEmail;
@@ -40,6 +42,7 @@ router.route('/update').post((req, res) => {
       .catch(err => res.status(400).json('Error: ' + err));
 });
 
+//Function to retrive data from db.
 router.route('/').get((req, res) => {
     User.User.find()
       .then(users => res.json(users))

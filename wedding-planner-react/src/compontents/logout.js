@@ -7,7 +7,7 @@ class Logout extends React.Component {
       .get("http://localhost:5000/logout")
       .then((response) => {
         console.log(response.data);
-        window.location = "/start";
+        window.location = "/";
       })
       .catch((err) => {
         console.log(err);

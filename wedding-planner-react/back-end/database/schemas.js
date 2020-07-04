@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const stuff = require("./stuffData.json");
 
-//creatinf a user schema
+//creating a user schema
 let userSchema = mongoose.Schema({
   firstName: String,
   lastName: String,
@@ -39,6 +39,7 @@ let Card = mongoose.model("Card", cardSchema, "cards");
 
 let save = (users) => {};
 
+//Function to populate wedding stuff data from JSON file
 let saveSt = () => {
   for (var i = 0; i < stuff.length; i++) {
     var partOfStuff = new Stuff({

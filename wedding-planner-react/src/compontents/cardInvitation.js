@@ -67,6 +67,7 @@ export default class CardInvitation extends Component {
     localStorage.setItem("groomName", this.state.groomName);
     localStorage.setItem("date", this.state.date);
     localStorage.setItem("placeName", this.state.placeName);
+    localStorage.setItem("wishListUrl", this.state.wishListUrl);
     console.log(card);
     //console.log(localStorage.getItem('id'))
     axios

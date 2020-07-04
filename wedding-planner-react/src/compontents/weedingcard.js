@@ -15,6 +15,7 @@ var groomName = localStorage.getItem("groomName");
 var brideName = localStorage.getItem("brideName");
 var date = localStorage.getItem("date");
 var placeName = localStorage.getItem("placeName");
+var wishListUrl = localStorage.getItem("wishListUrl");
 const CardExample = () => {
   console.log(date);
   const [isFlipped, setIsFlipped] = useState(false);
@@ -42,6 +43,7 @@ const CardExample = () => {
                 ​ At : 7:00 PM
                 <br />
                 In : {placeName}
+                <br />​ Our wish list Url : {wishListUrl}
                 <br />​
               </MDBCardText>
               <MDBBtn href="#">We Wil Be Happy To Have You With Us</MDBBtn>

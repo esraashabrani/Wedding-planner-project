@@ -61,6 +61,9 @@ app.get("/logout", (req, res) => {
   return res.status(200).send("logout");
 });
 
+app.get("/",(req, res) =>{
+  res.send(true);
+})
 populateData.saveSt();
 
 module.exports = app;

@@ -39,9 +39,6 @@ export default class Login extends Component {
         if (res.data === "That email not exists!") {
           document.getElementById("loginResult").innerText =
             "Login Failed! The email not exists! ";
-          // var btn = document.createElement("BUTTON"); // Create a <button> element
-          // btn.innerHTML = "CLICK ME"; // Insert text
-          // document.getElementsByClassName("btn").appendChild(btn);
         } else if (res.data === false) {
           document.getElementById("loginResult").innerText =
             "Login Failed! Wrong password! ";
