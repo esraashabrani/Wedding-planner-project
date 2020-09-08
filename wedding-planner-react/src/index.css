@@ -3,7 +3,7 @@
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 ​
 body, html, .App, #root{
-  background-color:#F5DEB3;
+  background-color:#f3cf8d;
   min-height: 100vh;
   display: flex;
   font-weight:400;

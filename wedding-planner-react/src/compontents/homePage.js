@@ -20,7 +20,7 @@ export default class HomePage extends Component {
           "Walking with your hands in mine and mine in yours, that’s exactly
           where I want to be always."
         </h4>
-        <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+        <nav className="navbar navbar-expand-lg navbar-light fixed-top" style={{backgroundColor:'#ffdf80'}}>
           <div className="container">
             <Link to={"/places"} className="navbar-brand">
               Places
@@ -43,7 +43,10 @@ export default class HomePage extends Component {
             <Link to={"/logout"} className="navbar-brand">
               Logout
             </Link>
-            <p>{email}</p>
+            <Link className="navbar-brand">
+            {email}
+            </Link>
+           
           </div>
         </nav>
         ​
