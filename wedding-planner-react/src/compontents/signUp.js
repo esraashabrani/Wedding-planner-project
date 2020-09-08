@@ -49,89 +49,86 @@ export default class SignUp extends Component {
     };
     console.log(user);
 
-    axios.post('http://localhost:5000/signup/', user)
-      .then(res => {
-        document.getElementById('accoutCreated').innerText = "Account created Successfully! "
-        window.location = '/sign-in'
+    axios
+      .post("http://localhost:5000/signup/", user)
+      .then((res) => {
+        document.getElementById("accoutCreated").innerText =
+          "Account created Successfully! ";
+        window.location = "/sign-in";
       })
-      .catch(() =>document.getElementById('accoutCreated').innerText = "The email is already exists! ")
+      .catch(
+        () =>
+          (document.getElementById("accoutCreated").innerText =
+            "The email is already exists! ")
+      );
 
-      //window.location = "/login" 
-
-    
+    //window.location = "/login"
   }
   render() {
     return (
-      <form  onSubmit={this.onSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">First name</label>
-          <br />
-          <input
-            onChange={this.onChangefirstName}
-            type="name"
-            name="firstName"
-            className="form-control"
-            id="firstName"
-            placeholder="Enter first name"
-            value={this.state.firstName}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <br />
-          <label htmlFor="name">Last name</label>
-          <br />
-          <input
-            onChange={this.onChangelastName}
-            type="name"
-            name="lastName"
-            className="form-control"
-            id="lastName"
-            placeholder="Enter last name"
-            value={this.state.lastName}
-            required
-          />
-        </div>
-        <br />
-
-        <div className="form-group">
-          <label htmlFor="email">Email address</label>
-          <br />
-          <input
-            onChange={this.onChangeemail}
-            type="email"
-            name="email"
-            className="form-control"
-            id="email"
-            aria-describedby="emailHelp"
-            placeholder="Enter email"
-            value={this.state.email}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <br />
-          <label htmlFor="password">Password</label>
-          <br />
-          <input
-            onChange={this.onChangepassword}
-            type="password"
-            name="password"
-            className="form-control"
-            id="password"
-            placeholder="Password"
-            value={this.state.password}
-            required
-          />
-        </div>
-        <br />
-        <div className="btn">
-          <button type="submit" className="btn btn-primary btn-block">
-            SignUp
-          </button>
-          <p id="accoutCreated"></p>
-        </div>
-      </form>
+      <body>
+        <form onSubmit={this.onSubmit}>
+          <h1>SignUp Form</h1>
+          <div class="formcontainer">
+            <hr />
+            <div class="container">
+              <label htmlFor="firstname">
+                <strong> First Name</strong>
+              </label>
+              <input
+                onChange={this.onChangefirstName}
+                type="text"
+                placeholder="Enter First Name"
+                name="firstname"
+                id="firstname"
+                value={this.state.firstName}
+                required
+              />
+              <label htmlFor="lastName">
+                <strong>Last Name</strong>
+              </label>
+              <input
+                onChange={this.onChangelastName}
+                type="text"
+                name="lastName"
+                id="lastName"
+                placeholder="Enter last name"
+                value={this.state.lastName}
+                required
+              />
+              <label htmlFor="email">
+                <strong> Email</strong>
+              </label>
+              <input
+                onChange={this.onChangeemail}
+                type="email"
+                name="email"
+                id="email"
+                aria-describedby="emailHelp"
+                placeholder="Enter email"
+                value={this.state.email}
+                required
+              />
+              <label htmlFor="password">
+                <strong> Password</strong>
+              </label>
+              <input
+                onChange={this.onChangepassword}
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                value={this.state.password}
+                required
+              />
+            </div>
+          </div>
+          <div>
+            <button type="submit" style={{margin: '10px 310px' ,width:'40%'}}>SignUp</button>
+            <p id="accoutCreated"></p>
+          </div>
+        </form>
+      </body>
     );
   }
 }

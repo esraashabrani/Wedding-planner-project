@@ -56,40 +56,42 @@ export default class Login extends Component {
 
   render() {
     return (
-      <form className="sign" onSubmit={this.onSubmit}>
-        <div className="form-group">
-          <label htmlFor="email">Email address</label>
-          <br />
-          <input
-            onChange={this.onChangeemail}
-            type="email"
-            name="email"
-            className="form-control"
-            id="email"
-            aria-describedby="emailHelp"
-            placeholder="Enter email"
-            value={this.state.email}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <br />
-          <label htmlFor="Password">Password</label>
-          <br />
-          <input
-            onChange={this.onChangepassword}
-            type="password"
-            name="password"
-            className="form-control"
-            id="password"
-            placeholder="password"
-            value={this.state.password}
-            required
-          />
-        </div>
-        <br />
-        <div className="btn">
-          <button type="submit" className="btn btn-primary">
+      <body>
+        <form onSubmit={this.onSubmit}>
+          <h1>Login Form</h1>
+          <div class="formcontainer">
+            <hr />
+            <div class="container">
+              <label htmlFor="email">
+                <strong> Email</strong>
+              </label>
+              <input
+                onChange={this.onChangeemail}
+                type="email"
+                placeholder="Enter email"
+                name="email"
+                id="email"
+                aria-describedby="emailHelp"
+                value={this.state.email}
+                required
+              />
+              <label htmlFor="password">
+                <strong>Password</strong>
+              </label>
+              <input
+                onChange={this.onChangepassword}
+                type="password"
+                name="password"
+                id="password"
+                value={this.state.password}
+                placeholder="Enter Password"
+                required
+              />
+            </div>
+          </div>
+     
+          <div >
+          <button type="submit">
             Login
           </button>
 
@@ -99,7 +101,8 @@ export default class Login extends Component {
 
           <p id="loginResult"></p>
         </div>
-      </form>
+        </form>
+      </body>
     );
   }
 }
